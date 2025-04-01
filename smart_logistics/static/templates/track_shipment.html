@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartLogistics - Track Shipment</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="d-flex justify-content-between align-items-center py-3 mb-4 border-bottom">
+            <a href="{{ url_for('index') }}" class="text-decoration-none">
+                <h2>SmartLogistics</h2>
+            </a>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a href="{{ url_for('dashboard') }}" class="nav-link">Dashboard</a></li>
+                    <li class="nav-item"><a href="{{ url_for('new_shipment') }}" class="nav-link">New Shipment</a></li>
+                    <li class="nav-item"><a href="{{ url_for('track_shipment') }}" class="nav-link active">Track Shipment</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow">
+                    <div class="card-header">
+                        <h3>Track Your Shipment</h3>
+                    </div>
+                    <div class="card-body">
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert alert-danger">{{ message }}</div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                        
+                        <form action="{{ url_for('track_shipment') }}" method="post" class="text-center py-4">
+                            <div class="mb-4 row justify-content-center">
+                                <div class="col-md-8">
+                                    <label for="shipment_id" class="form-label">Enter Shipment ID</label>
+                                    <input type="number" class="form-control form-control-lg" id="shipment_id" name="shipment_id" required>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-lg">Track Shipment</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>How Tracking Works</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex mb-4">
+                            <div class="me-3">
+                                <span class="badge bg-primary rounded-pill p-2">1</span>
+                            </div>
+                            <div>
+                                <h5>Enter Your Shipment ID</h5>
+                                <p>Input the shipment ID that was provided when you created the shipment</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex mb-4">
+                            <div class="me-3">
+                                <span class="badge bg-primary rounded-pill p-2">2</span>
+                            </div>
+                            <div>
+                                <h5>View Real-Time Status</h5>
+                                <p>Get up-to-date information about your shipment's current status and location</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex">
+                            <div class="me-3">
+                                <span class="badge bg-primary rounded-pill p-2">3</span>
+                            </div>
+                            <div>
+                                <h5>Check Delivery Predictions</h5>
+                                <p>View AI-powered predictions for estimated delivery time</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="text-center py-4 mt-5 bg-light">
+        <p>© 2025 SmartLogistics - All Rights Reserved</p>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

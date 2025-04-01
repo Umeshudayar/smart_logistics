@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartLogistics - Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="d-flex justify-content-between align-items-center py-3 mb-4 border-bottom">
+            <a href="{{ url_for('index') }}" class="text-decoration-none">
+                <h2>SmartLogistics</h2>
+            </a>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a href="{{ url_for('dashboard') }}" class="nav-link active">Dashboard</a></li>
+                    <li class="nav-item"><a href="{{ url_for('new_shipment') }}" class="nav-link">New Shipment</a></li>
+                    <li class="nav-item"><a href="{{ url_for('track_shipment') }}" class="nav-link">Track Shipment</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <h2 class="mb-4">Logistics Dashboard</h2>
+                <p class="lead mb-5">Manage your shipments and track deliveries with our intelligent logistics system</p>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-5">
+                <div class="card shadow-sm border-primary mb-4">
+                    <div class="card-body text-center py-5">
+                        <h3 class="card-title">Create New Shipment</h3>
+                        <p class="card-text">Create a new shipment request with all details</p>
+                        <a href="{{ url_for('new_shipment') }}" class="btn btn-primary btn-lg mt-3">
+                            New Shipment
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="card shadow-sm border-success mb-4">
+                    <div class="card-body text-center py-5">
+                        <h3 class="card-title">Track Existing Shipment</h3>
+                        <p class="card-text">Check the status of your existing shipment</p>
+                        <a href="{{ url_for('track_shipment') }}" class="btn btn-success btn-lg mt-3">
+                            Track Shipment
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h4>Our ML-Powered Features</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex">
+                                <div class="me-3">
+                                    <span class="badge bg-primary rounded-pill p-2">1</span>
+                                </div>
+                                <div>
+                                    <h5>Route Optimization</h5>
+                                    <p>Using A* algorithm to determine the most efficient delivery routes</p>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex">
+                                <div class="me-3">
+                                    <span class="badge bg-primary rounded-pill p-2">2</span>
+                                </div>
+                                <div>
+                                    <h5>Delivery Time Prediction</h5>
+                                    <p>Linear Regression model for accurate prediction of delivery times</p>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex">
+                                <div class="me-3">
+                                    <span class="badge bg-primary rounded-pill p-2">3</span>
+                                </div>
+                                <div>
+                                    <h5>Real-time Tracking</h5>
+                                    <p>Monitor your shipment status in real-time with interactive maps</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="text-center py-4 mt-5 bg-light">
+        <p>© 2025 SmartLogistics - All Rights Reserved</p>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

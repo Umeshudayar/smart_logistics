@@ -1,0 +1,78 @@
+/* Custom styles for SmartLogistics */
+
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+header h2 {
+    color: #0d6efd;
+    font-weight: 600;
+}
+
+.card {
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card.shadow:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.card-header {
+    font-weight: 600;
+}
+
+.btn {
+    border-radius: 5px;
+    padding: 8px 20px;
+    font-weight: 500;
+}
+
+.btn-lg {
+    padding: 10px 30px;
+}
+
+footer {
+    border-top: 1px solid #e9ecef;
+}
+
+.badge {
+    font-weight: 500;
+}
+
+/* Status colors */
+.status-pending {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.status-in-transit {
+    background-color: #0d6efd;
+    color: white;
+}
+
+.status-delivered {
+    background-color: #198754;
+    color: white;
+}
+
+/* Route map container */
+.map-container {
+    height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #dee2e6;
+}
+
+/* Prediction highlight */
+.prediction-highlight {
+    color: #0d6efd;
+    font-weight: 600;
+}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartLogistics - AI-Powered Delivery Management</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="d-flex justify-content-between align-items-center py-3 mb-4 border-bottom">
+            <a href="{{ url_for('index') }}" class="text-decoration-none">
+                <h2>SmartLogistics</h2>
+            </a>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a href="{{ url_for('dashboard') }}" class="nav-link">Dashboard</a></li>
+                    <li class="nav-item"><a href="{{ url_for('track_shipment') }}" class="nav-link">Track Shipment</a></li>
+                    {% if session.get('user_id') %}
+                        <li class="nav-item"><a href="{{ url_for('logout') }}" class="nav-link">Logout</a></li>
+                    {% else %}
+                        <li class="nav-item"><a href="{{ url_for('signin') }}" class="nav-link">Sign In</a></li>
+                        <li class="nav-item"><a href="{{ url_for('signup') }}" class="nav-link">Sign Up</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </header>
+        
+        <div class="row align-items-center mb-5">
+            <div class="col-md-6">
+                <h1 class="display-4 fw-bold">Smart Delivery Management</h1>
+                <p class="lead my-4">Transform your logistics with AI-powered route optimization and machine learning delivery time predictions</p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    {% if session.get('user_id') %}
+                        <a href="{{ url_for('dashboard') }}" class="btn btn-primary btn-lg px-4 me-md-2">Go to Dashboard</a>
+                    {% else %}
+                        <a href="{{ url_for('signup') }}" class="btn btn-primary btn-lg px-4 me-md-2">Get Started</a>
+                        <a href="{{ url_for('signin') }}" class="btn btn-outline-secondary btn-lg px-4">Sign In</a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="{{ url_for('static', filename='img/logistics-illustration.svg') }}" alt="Logistics Illustration" class="img-fluid" style="max-height: 400px;">
+            </div>
+        </div>
+        
+        <div class="row mb-5 mt-5 pt-5 border-top">
+            <div class="col-12 text-center mb-4">
+                <h2>AI-Powered Features</h2>
+                <p class="lead text-muted">Revolutionize your delivery process with our cutting-edge technology</p>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center py-4">
+                        <div class="mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#0d6efd" class="bi bi-map" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.502.502 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103zM10 1.91l-4-.8v12.98l4 .8V1.91zm1 12.98 4-.8V1.11l-4 .8v12.98zm-6-.8V1.11l-4 .8v12.98l4-.8z"/>
+                            </svg>
+                        </div>
+                        <h4 class="card-title">Route Optimization</h4>
+                        <p class="card-text">Our advanced A* algorithm calculates the most efficient delivery routes, reducing fuel costs and delivery times by up to 30%.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center py-4">
+                        <div class="mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#0d6efd" class="bi bi-graph-up" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0Zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z"/>
+                            </svg>
+                        </div>
+                        <h4 class="card-title">Delivery Time Prediction</h4>
+                        <p class="card-text">Our machine learning models analyze traffic patterns, weather, and historical data to provide accurate delivery time estimates.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center py-4">
+                        <div class="mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#0d6efd" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+                                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                            </svg>
+                        </div>
+                        <h4 class="card-title">Real-time Tracking</h4>
+                        <p class="card-text">Monitor your shipments with interactive maps and get real-time updates on delivery status and location.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mb-5 mt-5 pt-5 border-top">
+            <div class="col-md-6">
+                <h2>How It Works</h2>
+                <div class="d-flex mt-4">
+                    <div class="me-3">
+                        <span class="badge bg-primary rounded-circle p-3">1</span>
+                    </div>
+                    <div>
+                        <h5>Create a Shipment</h5>
+                        <p>Enter sender and receiver details along with package information</p>
+                    </div>
+                </div>
+                <div class="d-flex mt-4">
+                    <div class="me-3">
+                        <span class="badge bg-primary rounded-circle p-3">2</span>
+                    </div>
+                    <div>
+                        <h5>Optimize Route</h5>
+                        <p>Our AI calculates the most efficient route for your delivery</p>
+                    </div>
+                </div>
+                <div class="d-flex mt-4">
+                    <div class="me-3">
+                        <span class="badge bg-primary rounded-circle p-3">3</span>
+                    </div>
+                    <div>
+                        <h5>Track in Real-Time</h5>
+                        <p>Monitor your shipment's progress with our interactive tracking system</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Ready to Track a Shipment?</h3>
+                        <form action="{{ url_for('track_shipment') }}" method="post" class="mt-4">
+                            <div class="mb-3">
+                                <label for="quick_track_id" class="form-label">Enter Shipment ID</label>
+                                <input type="number" class="form-control form-control-lg" id="quick_track_id" name="shipment_id" placeholder="e.g., 123456" required>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg">Track Now</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="text-center py-4 bg-light mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 text-md-start">
+                    <h5>SmartLogistics</h5>
+                    <p class="text-muted">AI-Powered Delivery Management System</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{{ url_for('dashboard') }}" class="text-decoration-none">Dashboard</a></li>
+                        <li><a href="{{ url_for('track_shipment') }}" class="text-decoration-none">Track Shipment</a></li>
+                        <li><a href="{{ url_for('new_shipment') }}" class="text-decoration-none">New Shipment</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <h5>Contact</h5>
+                    <p class="text-muted">support@smartlogistics.com<br>+1 (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <p class="text-muted mb-0">© 2025 SmartLogistics - All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
