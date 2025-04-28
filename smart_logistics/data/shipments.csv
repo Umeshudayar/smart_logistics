@@ -1,0 +1,17 @@
+id,consignor_name,consignor_number,consignor_address,consignee_name,consignee_number,consignee_address,from_location,to_location,weight,quantity,distance,estimated_time,predicted_time,status
+1,Name,123456,nhynmujn,ndfsdn,1242,fbsdfbf,Munnar,Mumbai,10.0,100,1366.026,1565.9,2732.32,Pending
+2,Nwjwngwj,123456,dwegwegweg,sshfjshsh,12345679,sdhvbnndjg,goa,kashmir,10.0,100,2634.729,2746.833333333333,5280.06,Pending
+3,dgzg,2446,"gjc,tr",sdndfhn,49494,tzxjghsr,munnar,goa,100.0,1000,946.393,1145.2833333333333,1887.65,Pending
+4,umesh,98989896898,hvchdsvhjsvcdsc,sharu,55468465165481,dhchvhjs cbdhsdc,mumbai,kolkata,500.0,50,10.0,20.0,16.71,Pending
+5,efds,sdvcx,sfdvcx,sdfcx,fsdcx,fdsfsdcx,munnar,goa,50.0,50,10.0,20.0,24.49,Pending
+6,umesh,96558556255,bkjdckbjcdkugdjbscn,umesh,5485135488,vdshcjsbh,mumbai,kolkata,50.0,200,1885.608,1962.0333333333333,1565.88,Pending
+7,Umesh kumar,9321861857,mumbai maharashtra,udayar,9321861857,maharashtra,mumbai,chennai,50.0,500,1342.84,1444.0166666666669,1145.27,Pending
+8,umesh udayar,99696336635,"mumbai , maharashtra",prabhakar,9321861857,"mumbai , maharashtra",mumbai,goa,50.0,500,589.159,709.6333333333333,1145.28,Pending
+9,hhh,98556658845,dfjg,df,885667748,"mumbai , maharashtra",munnar,mumbai,50.0,200,1499.908,1589.0833333333333,1565.88,Pending
+10,vbsbxc,12121,vvmmn,xbcxxb,2,"m,nmb,bnmn",munnar,Delhi,10.0,100,2513.427,2610.4,1962.01,Pending
+11,zdgghcgkxgbj,4546564,fhvgjvguhj klbjipnjbiopbi0,gfxfycijipgy ,7879899,jvguivihokbiuoyuiotuoug,munnar,goa,1000000.0,10,853.672,1217.0666666666666,1145.29,Pending
+12,vhchkkjkgjkjk,1234567,fxygohjhjkh,"vkblnlm,",445212345,bmnbnbkjljbv,banglore,Chennai,10.0,100,324.763,413.75,709.65,Pending
+13,cndgn,jdfojnfs o,qndfdsnvdf,nn;skdf;,kvsfldj,nkdkvsd;s,munnar,Delhi,100.0,10,2513.442,2610.5,2746.79,Pending
+14,RDJ,nkk,"ddhv, ",hEMSWORTH,jyhfk,jb.b.,New york,Jersey,80.0,5,5516.764393364334,6620.117272037201,2746.79,Pending
+15,Nishanr,1563,Hyderabad,RDJ,49566,Chennai,Hyderabad,Chennai,100.0,10,631.379,687.05,709.69,Pending
+16,Nishant,7718,12456,Umesh,7889,154782,Thane,Rann of Kutch,1000.0,10,611.3439883559506,733.6127860271407,688.11,Pending

@@ -33,8 +33,19 @@ def index():
 def dashboard():
     return render_template('dashboard.html')
 
+@app.route('/signin')
+def signin():
+    return render_template('signin.html')
+
+@app.route('/signup')
+def signup():
+    return render_template('signin.html')
+
+
 @app.route('/new_shipment', methods=['GET', 'POST'])
 def new_shipment():
+    global shipments_df  # Declare as global at the beginning of the function
+    
     if request.method == 'POST':
         # Extract form data
         shipment_data = {
@@ -74,7 +85,6 @@ def new_shipment():
             generate_map(pickup, delivery, polyline, f"static/maps/shipment_{shipment_data['id']}.html")
             
             # Add to dataframe
-            global shipments_df
             shipments_df = pd.concat([shipments_df, pd.DataFrame([shipment_data])], ignore_index=True)
             shipments_df.to_csv(shipments_file, index=False)
             
