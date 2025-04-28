@@ -3,7 +3,7 @@ import folium
 from googlemaps.convert import decode_polyline
 
 # Replace with your Google Maps API key
-GOOGLE_API_KEY = "AIzaSyCKL0Ci-lcTDZEHmC52sStOCGvAYe6dGGk"
+GOOGLE_API_KEY = "yourapi"
 gmaps = googlemaps.Client(key=GOOGLE_API_KEY)
 
 def get_distance_time(pickup, delivery):
