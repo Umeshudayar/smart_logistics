@@ -76,15 +76,15 @@
                                         <div class="card bg-light mb-3">
                                             <div class="card-body text-center">
                                                 <h5 class="card-title">Est. Time</h5>
-                                                <p class="card-text fs-5">{{ shipment['estimated_time']|round(2) }} min</p>
+                                                <p class="card-text fs-5">{{ shipment['estimated_time']|round(2)/60 }} hour</p>
                                             </div>
-                                        </div>
+                                        </div>      
                                     </div>
                                     <div class="col-md-3">
                                         <div class="card bg-light mb-3">
                                             <div class="card-body text-center">
                                                 <h5 class="card-title">ML Prediction</h5>
-                                                <p class="card-text fs-5">{{ shipment['predicted_time']|round(2) }} min</p>
+                                                <p class="card-text fs-5">{{ shipment['predicted_time']|round(2)/60 }} hr</p>
                                             </div>
                                         </div>
                                     </div>
@@ -100,11 +100,11 @@
                                     <div class="col-md-6">
                                         <div class="alert alert-info">
                                             <h5>Delivery Prediction</h5>
-                                            <p>Our ML model predicts this shipment will take <strong>{{ shipment['predicted_time']|round(2) }} minutes</strong> based on historical data and current conditions.</p>
+                                            <p>Our ML model predicts this shipment will take <strong>{{ shipment['predicted_time']|round(2)/60 }} Hour</strong> based on historical data and current conditions.</p>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>  
                         </div>
                     </div>
                 </div>

@@ -57,4 +57,4 @@ def predict_delivery_time(model, distance):
     except Exception as e:
         print(f"Prediction error: {e}")
         # Fallback to a simple heuristic if prediction fails
-        return round(distance * 2, 2)  # ~2 min per km
+        return round(distance * 2, 2)   

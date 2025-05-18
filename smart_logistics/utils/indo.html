@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>AngularJS Demo</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="MainCtrl">
+
+  <!-- Data Binding -->
+  <h3>Welcome, {{name}}!</h3>
+  <input ng-model="name" placeholder="Enter your name">
+
+  <!-- List Toggle -->
+  <button ng-click="showList = !showList">Toggle Items</button>
+
+  <!-- List Display -->
+  <ul ng-show="showList">
+    <li ng-repeat="item in items">{{item}}</li>
+  </ul>
+
+  <script>
+    angular.module('myApp', [])
+      .controller('MainCtrl', function($scope) {
+        $scope.name = "";
+        $scope.showList = true;
+        $scope.items = ['HTML', 'CSS', 'AngularJS'];
+      });
+  </script>
+
+</body>
+</html>
+    dsdchvchjsdcsdgit
